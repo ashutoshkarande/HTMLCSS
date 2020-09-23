@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>stockspot | nifty | banknifty | stock tips | stock levels | nifty pivot points | banknifty pivot points
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+        body {
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png');
+        }
+    </style>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        input {
+            width: 100px;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><br>
+                MAX LOSS: <input type="number" id="maxloss" value="50" />
+                Profit: <input type="number" id="profit" value="100" />
+                <table>
+                    <tr>
+                        <th>Company</th>
+                        <th>value</th>
+                        <th>Candle size</th>
+                        <th>find Target</th>
+                        <th>Stoploss</th>
+                        <th>Qty</th>
+                        <th>Margin</th>
+                        <th>Profit</th>
+                    </tr>
+                    <tr>
+                        <td>AXISBANK :</td>
+                        <td>
+                            <div id="AXISBANK">loading..</div>
+                        </td>
+                        <td>
+                            <input type="number" id="AXISBANK_TEXT" oninput="myFunction('AXISBANK',1)" />
+                            <br>Size: <div id="AXISBANK_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="AXISBANK_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="AXISBANK_TEXT_BUY" oninput="myFunctionBuy('AXISBANK')" />
+                            : <div id="AXISBANK_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="AXISBANK_TEXT_SELL" oninput="myFunctionSell('AXISBANK')" />
+                            : <div id="AXISBANK_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NTPC :</td>
+                        <td>
+                            <div id="NTPC">loading..</div>
+                        </td>
+                        <td><input type="number" id="NTPC_TEXT" oninput="myFunction('NTPC',1)" />
+                            <br>Size: <div id="NTPC_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="NTPC_APROX_QTY" style="display: contents;">..</div>
+
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="NTPC_TEXT_BUY" oninput="myFunctionBuy('NTPC')" />
+                            : <div id="NTPC_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="NTPC_TEXT_SELL" oninput="myFunctionSell('NTPC')" />
+                            : <div id="NTPC_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HINDALCO :</td>
+                        <td>
+                            <div id="HINDALCO">loading..</div>
+                        </td>
+                        <td><input type="number" id="HINDALCO_TEXT" oninput="myFunction('HINDALCO',1)" />
+                            <br>Size: <div id="HINDALCO_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="HINDALCO_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="HINDALCO_TEXT_BUY" oninput="myFunctionBuy('HINDALCO')" />
+                            : <div id="HINDALCO_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="HINDALCO_TEXT_SELL" oninput="myFunctionSell('HINDALCO')" />
+                            : <div id="HINDALCO_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HCLTECH :</td>
+                        <td>
+                            <div id="HCLTECH">loading..</div>
+                        </td>
+                        <td><input type="number" id="HCLTECH_TEXT" oninput="myFunction('HCLTECH',1)" />
+                            <br>Size: <div id="HCLTECH_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="HCLTECH_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="HCLTECH_TEXT_BUY" oninput="myFunctionBuy('HCLTECH')" />
+                            : <div id="HCLTECH_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="HCLTECH_TEXT_SELL" oninput="myFunctionSell('HCLTECH')" />
+                            : <div id="HCLTECH_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MARICO :</td>
+                        <td>
+                            <div id="MARICO">loading..</div>
+                        </td>
+                        <td><input type="number" id="MARICO_TEXT" oninput="myFunction('MARICO',1)" />
+                            <br>Size: <div id="MARICO_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="MARICO_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="MARICO_TEXT_BUY" oninput="myFunctionBuy('MARICO')" />
+                            : <div id="MARICO_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="MARICO_TEXT_SELL" oninput="myFunctionSell('MARICO')" />
+                            : <div id="MARICO_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LUPIN :</td>
+                        <td>
+                            <div id="LUPIN">loading..</div>
+                        </td>
+                        <td><input type="number" id="LUPIN_TEXT" oninput="myFunction('LUPIN',1)" />
+                            <br>Size: <div id="LUPIN_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="LUPIN_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="LUPIN_TEXT_BUY" oninput="myFunctionBuy('LUPIN')" />
+                            : <div id="LUPIN_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="LUPIN_TEXT_SELL" oninput="myFunctionSell('LUPIN')" />
+                            : <div id="LUPIN_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CHOLAFIN :</td>
+                        <td>
+                            <div id="CHOLAFIN">loading..</div>
+                        </td>
+                        <td><input type="number" id="CHOLAFIN_TEXT" oninput="myFunction('CHOLAFIN',1)" />
+                            <br>Size: <div id="CHOLAFIN_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="CHOLAFIN_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="CHOLAFIN_TEXT_BUY" oninput="myFunctionBuy('CHOLAFIN')" />
+                            : <div id="CHOLAFIN_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="CHOLAFIN_TEXT_SELL" oninput="myFunctionSell('CHOLAFIN')" />
+                            : <div id="CHOLAFIN_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_Profit">loading..</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var maxLoss;
+        var profit;
+        //00155
+
+        var axis_factor = 0.00105;
+        var ntpc_factor = 0.00105;
+        var HINDALCO_factor = 0.00105;
+        var HCLTECH_factor = 0.00105;
+        var MARICO_factor = 0.00105;
+        var LUPIN_factor = 0.00105;
+        var CHOLAFIN_factor = 0.00105;
+
+        var axis_liveValue;
+        var ntpc_liveValue;
+        var HINDALCO_liveValue;
+        var HCLTECH_liveValue;
+        var MARICO_liveValue;
+        var LUPIN_liveValue;
+        var CHOLAFIN_liveValue;
+
+
+        function myFunctionBuy(symbol) {
+            switch (symbol) {
+                case "AXISBANK":
+                    var buyVal = document.getElementById('AXISBANK_TEXT_BUY').value;
+                    var AXISBANK_Profit = document.getElementById('AXISBANK_Profit').innerText;
+                    var AXISBANK_TEXT = document.getElementById('AXISBANK_TEXT').value;
+                    document.getElementById('AXISBANK_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(AXISBANK_Profit);
+                    document.getElementById('AXISBANK_SL').innerHTML = Number(buyVal) - Number(AXISBANK_TEXT);
+                    break;
+                case "NTPC":
+                    var buyVal = document.getElementById('NTPC_TEXT_BUY').value;
+                    var NTPC_Profit = document.getElementById('NTPC_Profit').innerText;
+                    var NTPC_TEXT = document.getElementById('NTPC_TEXT').value;
+                    document.getElementById('NTPC_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(NTPC_Profit);
+                    document.getElementById('NTPC_SL').innerHTML = Number(buyVal) - Number(NTPC_TEXT);
+                    break;
+                case "HINDALCO":
+                    var buyVal = document.getElementById('HINDALCO_TEXT_BUY').value;
+                    var HINDALCO_Profit = document.getElementById('HINDALCO_Profit').innerText;
+                    var HINDALCO_TEXT = document.getElementById('HINDALCO_TEXT').value;
+                    document.getElementById('HINDALCO_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(HINDALCO_Profit);
+                    document.getElementById('HINDALCO_SL').innerHTML = Number(buyVal) - Number(HINDALCO_TEXT);
+                    break;
+                case "HCLTECH":
+                    var buyVal = document.getElementById('HCLTECH_TEXT_BUY').value;
+                    var HCLTECH_Profit = document.getElementById('HCLTECH_Profit').innerText;
+                    var HCLTECH_TEXT = document.getElementById('HCLTECH_TEXT').value;
+                    document.getElementById('HCLTECH_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(HCLTECH_Profit);
+                    document.getElementById('HCLTECH_SL').innerHTML = Number(buyVal) - Number(HCLTECH_TEXT);
+                    break;
+                case "MARICO":
+                    var buyVal = document.getElementById('MARICO_TEXT_BUY').value;
+                    var MARICO_Profit = document.getElementById('MARICO_Profit').innerText;
+                    var MARICO_TEXT = document.getElementById('MARICO_TEXT').value;
+                    document.getElementById('MARICO_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(MARICO_Profit);
+                    document.getElementById('MARICO_SL').innerHTML = Number(buyVal) - Number(MARICO_TEXT);
+                    break;
+                case "LUPIN":
+                    var buyVal = document.getElementById('LUPIN_TEXT_BUY').value;
+                    var LUPIN_Profit = document.getElementById('LUPIN_Profit').innerText;
+                    var LUPIN_TEXT = document.getElementById('LUPIN_TEXT').value;
+                    document.getElementById('LUPIN_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(LUPIN_Profit);
+                    document.getElementById('LUPIN_SL').innerHTML = Number(buyVal) - Number(LUPIN_TEXT);
+                    break;
+                case "CHOLAFIN":
+                    var buyVal = document.getElementById('CHOLAFIN_TEXT_BUY').value;
+                    var CHOLAFIN_Profit = document.getElementById('CHOLAFIN_Profit').innerText;
+                    var CHOLAFIN_TEXT = document.getElementById('CHOLAFIN_TEXT').value;
+                    document.getElementById('CHOLAFIN_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(CHOLAFIN_Profit);
+                    document.getElementById('CHOLAFIN_SL').innerHTML = Number(buyVal) - Number(CHOLAFIN_TEXT);
+                    break;
+
+            }
+        }
+
+        function myFunctionSell(symbol) {
+            switch (symbol) {
+                case "AXISBANK":
+                    var buyVal = document.getElementById('AXISBANK_TEXT_SELL').value;
+                    var AXISBANK_Profit = document.getElementById('AXISBANK_Profit').innerText;
+                    var AXISBANK_TEXT = document.getElementById('AXISBANK_TEXT').value;
+                    document.getElementById('AXISBANK_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(AXISBANK_Profit);
+                    document.getElementById('AXISBANK_SL').innerHTML = Number(buyVal) + Number(AXISBANK_TEXT);
+                    break;
+                case "NTPC":
+                    var buyVal = document.getElementById('NTPC_TEXT_SELL').value;
+                    var NTPC_Profit = document.getElementById('NTPC_Profit').innerText;
+                    var NTPC_TEXT = document.getElementById('NTPC_TEXT').value;
+                    document.getElementById('NTPC_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(NTPC_Profit);
+                    document.getElementById('NTPC_SL').innerHTML = Number(buyVal) + Number(NTPC_TEXT);
+                    break;
+                case "HINDALCO":
+                    var buyVal = document.getElementById('HINDALCO_TEXT_SELL').value;
+                    var HINDALCO_Profit = document.getElementById('HINDALCO_Profit').innerText;
+                    var HINDALCO_TEXT = document.getElementById('HINDALCO_TEXT').value;
+                    document.getElementById('HINDALCO_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(HINDALCO_Profit);
+                    document.getElementById('HINDALCO_SL').innerHTML = Number(buyVal) + Number(HINDALCO_TEXT);
+                    break;
+                case "HCLTECH":
+                    var buyVal = document.getElementById('HCLTECH_TEXT_SELL').value;
+                    var HCLTECH_Profit = document.getElementById('HCLTECH_Profit').innerText;
+                    var HCLTECH_TEXT = document.getElementById('HCLTECH_TEXT').value;
+                    document.getElementById('HCLTECH_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(HCLTECH_Profit);
+                    document.getElementById('HCLTECH_SL').innerHTML = Number(buyVal) + Number(HCLTECH_TEXT);
+                    break;
+                case "MARICO":
+                    var buyVal = document.getElementById('MARICO_TEXT_SELL').value;
+                    var MARICO_Profit = document.getElementById('MARICO_Profit').innerText;
+                    var MARICO_TEXT = document.getElementById('MARICO_TEXT').value;
+                    document.getElementById('MARICO_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(MARICO_Profit);
+                    document.getElementById('MARICO_SL').innerHTML = Number(buyVal) + Number(MARICO_TEXT);
+                    break;
+                case "LUPIN":
+                    var buyVal = document.getElementById('LUPIN_TEXT_SELL').value;
+                    var LUPIN_Profit = document.getElementById('LUPIN_Profit').innerText;
+                    var LUPIN_TEXT = document.getElementById('LUPIN_TEXT').value;
+                    document.getElementById('LUPIN_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(LUPIN_Profit);
+                    document.getElementById('LUPIN_SL').innerHTML = Number(buyVal) + Number(LUPIN_TEXT);
+                    break;
+                case "CHOLAFIN":
+                    var buyVal = document.getElementById('CHOLAFIN_TEXT_SELL').value;
+                    var CHOLAFIN_Profit = document.getElementById('CHOLAFIN_Profit').innerText;
+                    var CHOLAFIN_TEXT = document.getElementById('CHOLAFIN_TEXT').value;
+                    document.getElementById('CHOLAFIN_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(CHOLAFIN_Profit);
+                    document.getElementById('CHOLAFIN_SL').innerHTML = Number(buyVal) + Number(CHOLAFIN_TEXT);
+                    break;
+            }
+        }
+
+
+        function myFunction(symbol, flag) {
+            //console.log("in myFunction");
+            var Qty = 1;
+            var temp = true;
+            profit = document.getElementById('profit').value;
+            switch (symbol) {
+                case "AXISBANK":
+                    //console.log("in AXISBANK");
+                    maxLoss = document.getElementById('maxloss').value;
+                    var size;
+                    if (flag == 1) {
+                        size = document.getElementById('AXISBANK_TEXT').value;
+                    } else {
+                        size = document.getElementById('AXISBANK_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    //console.log(size);
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * axis_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * axis_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('AXISBANK_QTY').innerHTML = Qty - 1;
+                            document.getElementById('AXISBANK_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('AXISBANK_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('AXISBANK_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "NTPC":
+                    maxLoss = document.getElementById('maxloss').value;
+                    var size;
+                    if (flag == 1) {
+                        size = document.getElementById('NTPC_TEXT').value;
+                    } else {
+                        size = document.getElementById('NTPC_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * ntpc_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * ntpc_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('NTPC_QTY').innerHTML = Qty - 1;
+                            document.getElementById('NTPC_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('NTPC_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('NTPC_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "HINDALCO":
+                    maxLoss = document.getElementById('maxloss').value;
+                    var size;
+                    if (flag == 1) {
+                        size = document.getElementById('HINDALCO_TEXT').value;
+                    } else {
+                        size = document.getElementById('HINDALCO_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * HINDALCO_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * HINDALCO_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('HINDALCO_QTY').innerHTML = Qty - 1;
+                            document.getElementById('HINDALCO_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('HINDALCO_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('HINDALCO_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "HCLTECH":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('HCLTECH_TEXT').value;
+                    } else {
+                        size = document.getElementById('HCLTECH_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * HCLTECH_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * HCLTECH_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+
+                        if (flag == 1) {
+                            document.getElementById('HCLTECH_QTY').innerHTML = Qty - 1;
+                            document.getElementById('HCLTECH_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('HCLTECH_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('HCLTECH_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "MARICO":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('MARICO_TEXT').value;
+                    } else {
+                        size = document.getElementById('MARICO_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * MARICO_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * MARICO_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+
+                        if (flag == 1) {
+                            document.getElementById('MARICO_QTY').innerHTML = Qty - 1;
+                            document.getElementById('MARICO_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('MARICO_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('MARICO_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "LUPIN":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('LUPIN_TEXT').value;
+                    } else {
+                        size = document.getElementById('LUPIN_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * LUPIN_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * LUPIN_factor;
+                            totalLoss = loss + margin;
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+
+                        if (flag == 1) {
+                            document.getElementById('LUPIN_QTY').innerHTML = Qty - 1;
+                            document.getElementById('LUPIN_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('LUPIN_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('LUPIN_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "CHOLAFIN":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('CHOLAFIN_TEXT').value;
+                    } else {
+                        size = document.getElementById('CHOLAFIN_APROX_SIZE').innerHTML;
+                        size = Number(size);
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * CHOLAFIN_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * CHOLAFIN_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('CHOLAFIN_QTY').innerHTML = Qty - 1;
+                            document.getElementById('CHOLAFIN_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('CHOLAFIN_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('CHOLAFIN_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        $(document).ready(function () {
+
+            function populateData(jsonData) {
+                var data = JSON.parse(jsonData);
+                console.log(data);
+                let axis = data.find(o => o.symbol === 'AXISBANK');
+                document.getElementById('AXISBANK').innerHTML = axis.ltP;
+                axis_liveValue = Number(axis.ltP);
+
+                let ntpc = data.find(o => o.symbol === 'NTPC');
+                document.getElementById('NTPC').innerHTML = ntpc.ltP;
+                ntpc_liveValue = Number(ntpc.ltP);
+
+                let HINDALCO = data.find(o => o.symbol === 'HINDALCO');
+                document.getElementById('HINDALCO').innerHTML = HINDALCO.ltP;
+                HINDALCO_liveValue = Number(HINDALCO.ltP);
+
+                let HCLTECH = data.find(o => o.symbol === 'HCLTECH');
+                document.getElementById('HCLTECH').innerHTML = HCLTECH.ltP;
+                HCLTECH_liveValue = Number(HCLTECH.ltP);
+
+                let MARICO = data.find(o => o.symbol === 'MARICO');
+                document.getElementById('MARICO').innerHTML = MARICO.ltP;
+                MARICO_liveValue = Number(MARICO.ltP);
+
+                let LUPIN = data.find(o => o.symbol === 'LUPIN');
+                document.getElementById('LUPIN').innerHTML = LUPIN.ltP;
+                LUPIN_liveValue = Number(LUPIN.ltP);
+
+                let CHOLAFIN = data.find(o => o.symbol === 'CHOLAFIN');
+                document.getElementById('CHOLAFIN').innerHTML = CHOLAFIN.ltP;
+                CHOLAFIN_liveValue = Number(CHOLAFIN.ltP);
+
+                let TIMEDATA = data.find(o => o.symbol === 'TIMEDATA');
+                document.getElementById('AXISBANK_APROX_SIZE').innerHTML = Number(TIMEDATA.AXISBANK.high) - Number(TIMEDATA.AXISBANK.low);
+                myFunction("AXISBANK", 2);
+                document.getElementById('NTPC_APROX_SIZE').innerHTML = Number(TIMEDATA.NTPC.high) - Number(TIMEDATA.NTPC.low);
+                myFunction("NTPC", 2);
+                document.getElementById('HINDALCO_APROX_SIZE').innerHTML = Number(TIMEDATA.HINDALCO.high) - Number(TIMEDATA.HINDALCO.low);
+                myFunction("HINDALCO", 2);
+                document.getElementById('HCLTECH_APROX_SIZE').innerHTML = Number(TIMEDATA.HCLTECH.high) - Number(TIMEDATA.HCLTECH.low);
+                myFunction("HCLTECH", 2);
+                document.getElementById('MARICO_APROX_SIZE').innerHTML = Number(TIMEDATA.MARICO.high) - Number(TIMEDATA.MARICO.low);
+                myFunction("MARICO", 2);
+                document.getElementById('LUPIN_APROX_SIZE').innerHTML = Number(TIMEDATA.LUPIN.high) - Number(TIMEDATA.LUPIN.low);
+                myFunction("LUPIN", 2);
+                document.getElementById('CHOLAFIN_APROX_SIZE').innerHTML = Number(TIMEDATA.CHOLAFIN.high) - Number(TIMEDATA.CHOLAFIN.low);
+                myFunction("CHOLAFIN", 2);
+            }
+
+            function getLatestDataFromServer() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        populateData(this.responseText);
+                    }
+                };
+                xmlhttp.open("GET", "https://morning-cove-84300.herokuapp.com/nifty", true);
+                xmlhttp.send();
+            }
+
+
+            setInterval(() => {
+                getLatestDataFromServer();
+            }, 5000);
+
+
+        });
+    </script>
+
+</body>
+
+</html>

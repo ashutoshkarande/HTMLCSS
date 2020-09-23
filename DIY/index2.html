@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>stockspot | nifty | banknifty | stock tips | stock levels | nifty pivot points | banknifty pivot points
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+        body {
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png');
+        }
+    </style>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        input {
+            width: 100px;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><br>
+                MAX LOSS: <input type="number" id="maxloss" value="25" />
+                Profit: <input type="number" id="profit" value="50" />
+                <table>
+                    <tr>
+                        <th>Company</th>
+                        <th>value</th>
+                        <th>Candle size</th>
+                        <th>find Target</th>
+                        <th>Stoploss</th>
+                        <th>Qty</th>
+                        <th>Margin</th>
+                        <th>Profit</th>
+                    </tr>
+                    <tr>
+                        <td>AXISBANK :</td>
+                        <td>
+                            <div id="AXISBANK">loading..</div>
+                        </td>
+                        <td>
+                            <input type="number" id="AXISBANK_TEXT" oninput="myFunction('AXISBANK',1)" />
+                            <br>Size: <div id="AXISBANK_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="AXISBANK_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="AXISBANK_TEXT_BUY" oninput="myFunctionBuy('AXISBANK')" />
+                            : <div id="AXISBANK_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="AXISBANK_TEXT_SELL" oninput="myFunctionSell('AXISBANK')" />
+                            : <div id="AXISBANK_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="AXISBANK_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NTPC :</td>
+                        <td>
+                            <div id="NTPC">loading..</div>
+                        </td>
+                        <td><input type="number" id="NTPC_TEXT" oninput="myFunction('NTPC',1)" />
+                            <br>Size: <div id="NTPC_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="NTPC_APROX_QTY" style="display: contents;">..</div>
+
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="NTPC_TEXT_BUY" oninput="myFunctionBuy('NTPC')" />
+                            : <div id="NTPC_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="NTPC_TEXT_SELL" oninput="myFunctionSell('NTPC')" />
+                            : <div id="NTPC_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="NTPC_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HINDALCO :</td>
+                        <td>
+                            <div id="HINDALCO">loading..</div>
+                        </td>
+                        <td><input type="number" id="HINDALCO_TEXT" oninput="myFunction('HINDALCO',1)" />
+                            <br>Size: <div id="HINDALCO_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="HINDALCO_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="HINDALCO_TEXT_BUY" oninput="myFunctionBuy('HINDALCO')" />
+                            : <div id="HINDALCO_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="HINDALCO_TEXT_SELL" oninput="myFunctionSell('HINDALCO')" />
+                            : <div id="HINDALCO_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HINDALCO_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HCLTECH :</td>
+                        <td>
+                            <div id="HCLTECH">loading..</div>
+                        </td>
+                        <td><input type="number" id="HCLTECH_TEXT" oninput="myFunction('HCLTECH',1)" />
+                            <br>Size: <div id="HCLTECH_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="HCLTECH_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="HCLTECH_TEXT_BUY" oninput="myFunctionBuy('HCLTECH')" />
+                            : <div id="HCLTECH_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="HCLTECH_TEXT_SELL" oninput="myFunctionSell('HCLTECH')" />
+                            : <div id="HCLTECH_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="HCLTECH_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MARICO :</td>
+                        <td>
+                            <div id="MARICO">loading..</div>
+                        </td>
+                        <td><input type="number" id="MARICO_TEXT" oninput="myFunction('MARICO',1)" />
+                            <br>Size: <div id="MARICO_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="MARICO_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="MARICO_TEXT_BUY" oninput="myFunctionBuy('MARICO')" />
+                            : <div id="MARICO_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="MARICO_TEXT_SELL" oninput="myFunctionSell('MARICO')" />
+                            : <div id="MARICO_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="MARICO_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LUPIN :</td>
+                        <td>
+                            <div id="LUPIN">loading..</div>
+                        </td>
+                        <td><input type="number" id="LUPIN_TEXT" oninput="myFunction('LUPIN',1)" />
+                            <br>Size: <div id="LUPIN_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="LUPIN_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="LUPIN_TEXT_BUY" oninput="myFunctionBuy('LUPIN')" />
+                            : <div id="LUPIN_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="LUPIN_TEXT_SELL" oninput="myFunctionSell('LUPIN')" />
+                            : <div id="LUPIN_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="LUPIN_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CHOLAFIN :</td>
+                        <td>
+                            <div id="CHOLAFIN">loading..</div>
+                        </td>
+                        <td><input type="number" id="CHOLAFIN_TEXT" oninput="myFunction('CHOLAFIN',1)" />
+                            <br>Size: <div id="CHOLAFIN_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="CHOLAFIN_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="CHOLAFIN_TEXT_BUY" oninput="myFunctionBuy('CHOLAFIN')" />
+                            : <div id="CHOLAFIN_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="CHOLAFIN_TEXT_SELL" oninput="myFunctionSell('CHOLAFIN')" />
+                            : <div id="CHOLAFIN_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="CHOLAFIN_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TATAMOTORS :</td>
+                        <td>
+                            <div id="TATAMOTORS">loading..</div>
+                        </td>
+                        <td><input type="number" id="TATAMOTORS_TEXT" oninput="myFunction('TATAMOTORS',1)" />
+                            <br>Size: <div id="TATAMOTORS_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="TATAMOTORS_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="TATAMOTORS_TEXT_BUY" oninput="myFunctionBuy('TATAMOTORS')" />
+                            : <div id="TATAMOTORS_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="TATAMOTORS_TEXT_SELL"
+                                oninput="myFunctionSell('TATAMOTORS')" />
+                            : <div id="TATAMOTORS_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="TATAMOTORS_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="TATAMOTORS_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="TATAMOTORS_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="TATAMOTORS_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SBIN :</td>
+                        <td>
+                            <div id="SBIN">loading..</div>
+                        </td>
+                        <td><input type="number" id="SBIN_TEXT" oninput="myFunction('SBIN',1)" />
+                            <br>Size: <div id="SBIN_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="SBIN_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="SBIN_TEXT_BUY" oninput="myFunctionBuy('SBIN')" />
+                            : <div id="SBIN_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="SBIN_TEXT_SELL" oninput="myFunctionSell('SBIN')" />
+                            : <div id="SBIN_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="SBIN_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="SBIN_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="SBIN_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="SBIN_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ADANIPORTS :</td>
+                        <td>
+                            <div id="ADANIPORTS">loading..</div>
+                        </td>
+                        <td><input type="number" id="ADANIPORTS_TEXT" oninput="myFunction('ADANIPORTS',1)" />
+                            <br>Size: <div id="ADANIPORTS_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="ADANIPORTS_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="ADANIPORTS_TEXT_BUY" oninput="myFunctionBuy('ADANIPORTS')" />
+                            : <div id="ADANIPORTS_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="ADANIPORTS_TEXT_SELL"
+                                oninput="myFunctionSell('ADANIPORTS')" />
+                            : <div id="ADANIPORTS_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="ADANIPORTS_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="ADANIPORTS_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="ADANIPORTS_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="ADANIPORTS_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TITAN :</td>
+                        <td>
+                            <div id="TITAN">loading..</div>
+                        </td>
+                        <td><input type="number" id="TITAN_TEXT" oninput="myFunction('TITAN',1)" />
+                            <br>Size: <div id="TITAN_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="TITAN_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="TITAN_TEXT_BUY" oninput="myFunctionBuy('TITAN')" />
+                            : <div id="TITAN_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="TITAN_TEXT_SELL" oninput="myFunctionSell('TITAN')" />
+                            : <div id="TITAN_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="TITAN_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="TITAN_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="TITAN_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="TITAN_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>RELIANCE :</td>
+                        <td>
+                            <div id="RELIANCE">loading..</div>
+                        </td>
+                        <td><input type="number" id="RELIANCE_TEXT" oninput="myFunction('RELIANCE',1)" />
+                            <br>Size: <div id="RELIANCE_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="RELIANCE_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="RELIANCE_TEXT_BUY" oninput="myFunctionBuy('RELIANCE')" />
+                            : <div id="RELIANCE_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="RELIANCE_TEXT_SELL" oninput="myFunctionSell('RELIANCE')" />
+                            : <div id="RELIANCE_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="RELIANCE_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="RELIANCE_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="RELIANCE_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="RELIANCE_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ZEEL :</td>
+                        <td>
+                            <div id="ZEEL">loading..</div>
+                        </td>
+                        <td><input type="number" id="ZEEL_TEXT" oninput="myFunction('ZEEL',1)" />
+                            <br>Size: <div id="ZEEL_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="ZEEL_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="ZEEL_TEXT_BUY" oninput="myFunctionBuy('ZEEL')" />
+                            : <div id="ZEEL_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="ZEEL_TEXT_SELL" oninput="myFunctionSell('ZEEL')" />
+                            : <div id="ZEEL_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="ZEEL_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="ZEEL_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="ZEEL_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="ZEEL_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>BPCL :</td>
+                        <td>
+                            <div id="BPCL">loading..</div>
+                        </td>
+                        <td><input type="number" id="BPCL_TEXT" oninput="myFunction('BPCL',1)" />
+                            <br>Size: <div id="BPCL_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="BPCL_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="BPCL_TEXT_BUY" oninput="myFunctionBuy('BPCL')" />
+                            : <div id="BPCL_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="BPCL_TEXT_SELL" oninput="myFunctionSell('BPCL')" />
+                            : <div id="BPCL_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="BPCL_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="BPCL_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="BPCL_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="BPCL_Profit">loading..</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>COALINDIA :</td>
+                        <td>
+                            <div id="COALINDIA">loading..</div>
+                        </td>
+                        <td><input type="number" id="COALINDIA_TEXT" oninput="myFunction('COALINDIA',1)" />
+                            <br>Size: <div id="COALINDIA_APROX_SIZE" style="display: contents;">..</div> : Qty: <div
+                                id="COALINDIA_APROX_QTY" style="display: contents;">..</div>
+                        </td>
+                        <td>
+                            Buy : <input type="number" id="COALINDIA_TEXT_BUY" oninput="myFunctionBuy('COALINDIA')" />
+                            : <div id="COALINDIA_TEXT_BUY_T"
+                                style="display: inline-block;background-color: green;color: white;padding: 2px;">...
+                            </div><br>
+                            Sell : <input type="number" id="COALINDIA_TEXT_SELL"
+                                oninput="myFunctionSell('COALINDIA')" />
+                            : <div id="COALINDIA_TEXT_SELL_T"
+                                style="display: inline-block;background-color: red;color: white;padding: 2px;">...</div>
+                        </td>
+                        <td>
+                            <div id="COALINDIA_SL">loading..</div>
+                        </td>
+                        <td>
+                            <div id="COALINDIA_QTY">loading..</div>
+                        </td>
+                        <td>
+                            <div id="COALINDIA_Margin">loading..</div>
+                        </td>
+                        <td>
+                            <div id="COALINDIA_Profit">loading..</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var maxLoss;
+        var profit;
+        //00155
+
+        var axis_factor = 0.00105;
+        var ntpc_factor = 0.00105;
+        var HINDALCO_factor = 0.00105;
+        var HCLTECH_factor = 0.00105;
+        var MARICO_factor = 0.00105;
+        var LUPIN_factor = 0.00105;
+        var CHOLAFIN_factor = 0.00105;
+        var TATAMOTORS_factor = 0.00105;
+        var SBIN_factor = 0.00105;
+        var ADANIPORTS_factor = 0.00105;
+        var TITAN_factor = 0.00105;
+        var RELIANCE_factor = 0.00105;
+        var ZEEL_factor = 0.00105;
+        var BPCL_factor = 0.00105;
+        var COALINDIA_factor = 0.00105;
+
+        var axis_liveValue;
+        var ntpc_liveValue;
+        var HINDALCO_liveValue;
+        var HCLTECH_liveValue;
+        var MARICO_liveValue;
+        var LUPIN_liveValue;
+        var CHOLAFIN_liveValue;
+        var TATAMOTORS_liveValue;
+        var SBIN_liveValue;
+        var ADANIPORTS_liveValue;
+        var TITAN_liveValue;
+        var RELIANCE_liveValue;
+        var ZEEL_liveValue;
+        var BPCL_liveValue;
+        var COALINDIA_liveValue;
+
+
+        function myFunctionBuy(symbol) {
+            switch (symbol) {
+                case "AXISBANK":
+                    var buyVal = document.getElementById('AXISBANK_TEXT_BUY').value;
+                    var AXISBANK_Profit = document.getElementById('AXISBANK_Profit').innerText;
+                    var AXISBANK_TEXT = document.getElementById('AXISBANK_TEXT').value;
+
+
+                    var AXISBANK_TEXT_BUY = document.getElementById('AXISBANK_TEXT_BUY').value;
+                    var AXISBANK_Margin = document.getElementById('AXISBANK_Margin').innerText;
+                    var AXISBANK_QTY = document.getElementById('AXISBANK_QTY').innerText;
+                    AXISBANK_Margin = Number(AXISBANK_Margin);
+                    AXISBANK_QTY = Number(AXISBANK_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < AXISBANK_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * AXISBANK_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(AXISBANK_TEXT)) - 0.05;
+                    var breakEven = Number(AXISBANK_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('AXISBANK_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(AXISBANK_Profit);
+                    document.getElementById('AXISBANK_SL').innerHTML = slText;
+                    break;
+                case "NTPC":
+                    var buyVal = document.getElementById('NTPC_TEXT_BUY').value;
+                    var NTPC_Profit = document.getElementById('NTPC_Profit').innerText;
+                    var NTPC_TEXT = document.getElementById('NTPC_TEXT').value;
+
+                    var NTPC_TEXT_BUY = document.getElementById('NTPC_TEXT_BUY').value;
+                    var NTPC_Margin = document.getElementById('NTPC_Margin').innerText;
+                    var NTPC_QTY = document.getElementById('NTPC_QTY').innerText;
+                    NTPC_Margin = Number(NTPC_Margin);
+                    NTPC_QTY = Number(NTPC_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < NTPC_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * NTPC_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(NTPC_TEXT)) - 0.05;
+                    var breakEven = Number(NTPC_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+
+                    document.getElementById('NTPC_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(NTPC_Profit);
+                    // document.getElementById('NTPC_SL').innerHTML = (Number(buyVal) - Number(NTPC_TEXT)) - 0.05;
+                    document.getElementById('NTPC_SL').innerHTML = slText;
+                    break;
+                case "HINDALCO":
+                    var buyVal = document.getElementById('HINDALCO_TEXT_BUY').value;
+                    var HINDALCO_Profit = document.getElementById('HINDALCO_Profit').innerText;
+                    var HINDALCO_TEXT = document.getElementById('HINDALCO_TEXT').value;
+
+                    var HINDALCO_TEXT_BUY = document.getElementById('HINDALCO_TEXT_BUY').value;
+                    var HINDALCO_Margin = document.getElementById('HINDALCO_Margin').innerText;
+                    var HINDALCO_QTY = document.getElementById('HINDALCO_QTY').innerText;
+                    HINDALCO_Margin = Number(HINDALCO_Margin);
+                    HINDALCO_QTY = Number(HINDALCO_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < HINDALCO_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * HINDALCO_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(HINDALCO_TEXT)) - 0.05;
+                    var breakEven = Number(HINDALCO_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('HINDALCO_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(HINDALCO_Profit);
+                    document.getElementById('HINDALCO_SL').innerHTML = slText;
+                    break;
+                case "HCLTECH":
+                    var buyVal = document.getElementById('HCLTECH_TEXT_BUY').value;
+                    var HCLTECH_Profit = document.getElementById('HCLTECH_Profit').innerText;
+                    var HCLTECH_TEXT = document.getElementById('HCLTECH_TEXT').value;
+
+                    var HCLTECH_TEXT_BUY = document.getElementById('HCLTECH_TEXT_BUY').value;
+                    var HCLTECH_Margin = document.getElementById('HCLTECH_Margin').innerText;
+                    var HCLTECH_QTY = document.getElementById('HCLTECH_QTY').innerText;
+                    HCLTECH_Margin = Number(HCLTECH_Margin);
+                    HCLTECH_QTY = Number(HCLTECH_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < HCLTECH_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * HCLTECH_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(HCLTECH_TEXT)) - 0.05;
+                    var breakEven = Number(HCLTECH_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('HCLTECH_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(HCLTECH_Profit);
+                    document.getElementById('HCLTECH_SL').innerHTML = slText;
+                    break;
+                case "MARICO":
+                    var buyVal = document.getElementById('MARICO_TEXT_BUY').value;
+                    var MARICO_Profit = document.getElementById('MARICO_Profit').innerText;
+                    var MARICO_TEXT = document.getElementById('MARICO_TEXT').value;
+
+                    var MARICO_TEXT_BUY = document.getElementById('MARICO_TEXT_BUY').value;
+                    var MARICO_Margin = document.getElementById('MARICO_Margin').innerText;
+                    var MARICO_QTY = document.getElementById('MARICO_QTY').innerText;
+                    MARICO_Margin = Number(MARICO_Margin);
+                    MARICO_QTY = Number(MARICO_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < MARICO_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * MARICO_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(MARICO_TEXT)) - 0.05;
+                    var breakEven = Number(MARICO_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('MARICO_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(MARICO_Profit);
+                    document.getElementById('MARICO_SL').innerHTML = slText;
+                    break;
+                case "LUPIN":
+                    var buyVal = document.getElementById('LUPIN_TEXT_BUY').value;
+                    var LUPIN_Profit = document.getElementById('LUPIN_Profit').innerText;
+                    var LUPIN_TEXT = document.getElementById('LUPIN_TEXT').value;
+
+                    var LUPIN_TEXT_BUY = document.getElementById('LUPIN_TEXT_BUY').value;
+                    var LUPIN_Margin = document.getElementById('LUPIN_Margin').innerText;
+                    var LUPIN_QTY = document.getElementById('LUPIN_QTY').innerText;
+                    LUPIN_Margin = Number(LUPIN_Margin);
+                    LUPIN_QTY = Number(LUPIN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < LUPIN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * LUPIN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(LUPIN_TEXT)) - 0.05;
+                    var breakEven = Number(LUPIN_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('LUPIN_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(LUPIN_Profit);
+                    document.getElementById('LUPIN_SL').innerHTML = slText;
+                    break;
+                case "CHOLAFIN":
+                    var buyVal = document.getElementById('CHOLAFIN_TEXT_BUY').value;
+                    var CHOLAFIN_Profit = document.getElementById('CHOLAFIN_Profit').innerText;
+                    var CHOLAFIN_TEXT = document.getElementById('CHOLAFIN_TEXT').value;
+
+                    var CHOLAFIN_TEXT_BUY = document.getElementById('CHOLAFIN_TEXT_BUY').value;
+                    var CHOLAFIN_Margin = document.getElementById('CHOLAFIN_Margin').innerText;
+                    var CHOLAFIN_QTY = document.getElementById('CHOLAFIN_QTY').innerText;
+                    CHOLAFIN_Margin = Number(CHOLAFIN_Margin);
+                    CHOLAFIN_QTY = Number(CHOLAFIN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < CHOLAFIN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * CHOLAFIN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(CHOLAFIN_TEXT)) - 0.05;
+                    var breakEven = Number(CHOLAFIN_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('CHOLAFIN_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(CHOLAFIN_Profit);
+                    document.getElementById('CHOLAFIN_SL').innerHTML = slText;
+                    break;
+                case "TATAMOTORS":
+                    var buyVal = document.getElementById('TATAMOTORS_TEXT_BUY').value;
+                    var TATAMOTORS_Profit = document.getElementById('TATAMOTORS_Profit').innerText;
+                    var TATAMOTORS_TEXT = document.getElementById('TATAMOTORS_TEXT').value;
+
+                    var TATAMOTORS_TEXT_BUY = document.getElementById('TATAMOTORS_TEXT_BUY').value;
+                    var TATAMOTORS_Margin = document.getElementById('TATAMOTORS_Margin').innerText;
+                    var TATAMOTORS_QTY = document.getElementById('TATAMOTORS_QTY').innerText;
+                    TATAMOTORS_Margin = Number(TATAMOTORS_Margin);
+                    TATAMOTORS_QTY = Number(TATAMOTORS_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < TATAMOTORS_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * TATAMOTORS_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(TATAMOTORS_TEXT)) - 0.05;
+                    var breakEven = Number(TATAMOTORS_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('TATAMOTORS_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(TATAMOTORS_Profit);
+                    document.getElementById('TATAMOTORS_SL').innerHTML = slText;
+                    break;
+                case "SBIN":
+                    var buyVal = document.getElementById('SBIN_TEXT_BUY').value;
+                    var SBIN_Profit = document.getElementById('SBIN_Profit').innerText;
+                    var SBIN_TEXT = document.getElementById('SBIN_TEXT').value;
+
+                    var SBIN_TEXT_BUY = document.getElementById('SBIN_TEXT_BUY').value;
+                    var SBIN_Margin = document.getElementById('SBIN_Margin').innerText;
+                    var SBIN_QTY = document.getElementById('SBIN_QTY').innerText;
+                    SBIN_Margin = Number(SBIN_Margin);
+                    SBIN_QTY = Number(SBIN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < SBIN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * SBIN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(SBIN_TEXT)) - 0.05;
+                    var breakEven = Number(SBIN_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('SBIN_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(SBIN_Profit);
+                    document.getElementById('SBIN_SL').innerHTML = slText;
+                    break;
+                case "ADANIPORTS":
+                    var buyVal = document.getElementById('ADANIPORTS_TEXT_BUY').value;
+                    var ADANIPORTS_Profit = document.getElementById('ADANIPORTS_Profit').innerText;
+                    var ADANIPORTS_TEXT = document.getElementById('ADANIPORTS_TEXT').value;
+
+                    var ADANIPORTS_TEXT_BUY = document.getElementById('ADANIPORTS_TEXT_BUY').value;
+                    var ADANIPORTS_Margin = document.getElementById('ADANIPORTS_Margin').innerText;
+                    var ADANIPORTS_QTY = document.getElementById('ADANIPORTS_QTY').innerText;
+                    ADANIPORTS_Margin = Number(ADANIPORTS_Margin);
+                    ADANIPORTS_QTY = Number(ADANIPORTS_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < ADANIPORTS_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * ADANIPORTS_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(ADANIPORTS_TEXT)) - 0.05;
+                    var breakEven = Number(ADANIPORTS_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('ADANIPORTS_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(ADANIPORTS_Profit);
+                    document.getElementById('ADANIPORTS_SL').innerHTML = slText;
+                    break;
+                case "TITAN":
+                    var buyVal = document.getElementById('TITAN_TEXT_BUY').value;
+                    var TITAN_Profit = document.getElementById('TITAN_Profit').innerText;
+                    var TITAN_TEXT = document.getElementById('TITAN_TEXT').value;
+
+                    var TITAN_TEXT_BUY = document.getElementById('TITAN_TEXT_BUY').value;
+                    var TITAN_Margin = document.getElementById('TITAN_Margin').innerText;
+                    var TITAN_QTY = document.getElementById('TITAN_QTY').innerText;
+                    TITAN_Margin = Number(TITAN_Margin);
+                    TITAN_QTY = Number(TITAN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < TITAN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * TITAN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(TITAN_TEXT)) - 0.05;
+                    var breakEven = Number(TITAN_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('TITAN_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(TITAN_Profit);
+                    document.getElementById('TITAN_SL').innerHTML = slText;
+                    break;
+                case "RELIANCE":
+                    var buyVal = document.getElementById('RELIANCE_TEXT_BUY').value;
+                    var RELIANCE_Profit = document.getElementById('RELIANCE_Profit').innerText;
+                    var RELIANCE_TEXT = document.getElementById('RELIANCE_TEXT').value;
+
+                    var RELIANCE_TEXT_BUY = document.getElementById('RELIANCE_TEXT_BUY').value;
+                    var RELIANCE_Margin = document.getElementById('RELIANCE_Margin').innerText;
+                    var RELIANCE_QTY = document.getElementById('RELIANCE_QTY').innerText;
+                    RELIANCE_Margin = Number(RELIANCE_Margin);
+                    RELIANCE_QTY = Number(RELIANCE_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < RELIANCE_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * RELIANCE_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(RELIANCE_TEXT)) - 0.05;
+                    var breakEven = Number(RELIANCE_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('RELIANCE_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(RELIANCE_Profit);
+                    document.getElementById('RELIANCE_SL').innerHTML = slText;
+                    break;
+                case "ZEEL":
+                    var buyVal = document.getElementById('ZEEL_TEXT_BUY').value;
+                    var ZEEL_Profit = document.getElementById('ZEEL_Profit').innerText;
+                    var ZEEL_TEXT = document.getElementById('ZEEL_TEXT').value;
+
+                    var ZEEL_TEXT_BUY = document.getElementById('ZEEL_TEXT_BUY').value;
+                    var ZEEL_Margin = document.getElementById('ZEEL_Margin').innerText;
+                    var ZEEL_QTY = document.getElementById('ZEEL_QTY').innerText;
+                    ZEEL_Margin = Number(ZEEL_Margin);
+                    ZEEL_QTY = Number(ZEEL_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < ZEEL_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * ZEEL_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(ZEEL_TEXT)) - 0.05;
+                    var breakEven = Number(ZEEL_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('ZEEL_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(ZEEL_Profit);
+                    document.getElementById('ZEEL_SL').innerHTML = slText;
+                    break;
+                case "BPCL":
+                    var buyVal = document.getElementById('BPCL_TEXT_BUY').value;
+                    var BPCL_Profit = document.getElementById('BPCL_Profit').innerText;
+                    var BPCL_TEXT = document.getElementById('BPCL_TEXT').value;
+
+                    var BPCL_TEXT_BUY = document.getElementById('BPCL_TEXT_BUY').value;
+                    var BPCL_Margin = document.getElementById('BPCL_Margin').innerText;
+                    var BPCL_QTY = document.getElementById('BPCL_QTY').innerText;
+                    BPCL_Margin = Number(BPCL_Margin);
+                    BPCL_QTY = Number(BPCL_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < BPCL_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * BPCL_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(BPCL_TEXT)) - 0.05;
+                    var breakEven = Number(BPCL_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('BPCL_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(BPCL_Profit);
+                    document.getElementById('BPCL_SL').innerHTML = slText;
+                    break;
+                case "COALINDIA":
+                    var buyVal = document.getElementById('COALINDIA_TEXT_BUY').value;
+                    var COALINDIA_Profit = document.getElementById('COALINDIA_Profit').innerText;
+                    var COALINDIA_TEXT = document.getElementById('COALINDIA_TEXT').value;
+
+                    var COALINDIA_TEXT_BUY = document.getElementById('COALINDIA_TEXT_BUY').value;
+                    var COALINDIA_Margin = document.getElementById('COALINDIA_Margin').innerText;
+                    var COALINDIA_QTY = document.getElementById('COALINDIA_QTY').innerText;
+                    COALINDIA_Margin = Number(COALINDIA_Margin);
+                    COALINDIA_QTY = Number(COALINDIA_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < COALINDIA_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * COALINDIA_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) - Number(COALINDIA_TEXT)) - 0.05;
+                    var breakEven = Number(COALINDIA_TEXT_BUY) + Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('COALINDIA_TEXT_BUY_T').innerHTML = Number(buyVal) + Number(COALINDIA_Profit);
+                    document.getElementById('COALINDIA_SL').innerHTML = slText;
+                    break;
+
+            }
+        }
+
+        function myFunctionSell(symbol) {
+            switch (symbol) {
+                case "AXISBANK":
+                    var buyVal = document.getElementById('AXISBANK_TEXT_SELL').value;
+                    var AXISBANK_Profit = document.getElementById('AXISBANK_Profit').innerText;
+                    var AXISBANK_TEXT = document.getElementById('AXISBANK_TEXT').value;
+
+                    var AXISBANK_TEXT_BUY = document.getElementById('AXISBANK_TEXT_SELL').value;
+                    var AXISBANK_Margin = document.getElementById('AXISBANK_Margin').innerText;
+                    var AXISBANK_QTY = document.getElementById('AXISBANK_QTY').innerText;
+                    AXISBANK_Margin = Number(AXISBANK_Margin);
+                    AXISBANK_QTY = Number(AXISBANK_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < AXISBANK_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * AXISBANK_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(AXISBANK_TEXT)) + 0.05;
+                    var breakEven = Number(AXISBANK_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('AXISBANK_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(AXISBANK_Profit);
+                    document.getElementById('AXISBANK_SL').innerHTML = slText;
+                    break;
+                case "NTPC":
+                    var buyVal = document.getElementById('NTPC_TEXT_SELL').value;
+                    var NTPC_Profit = document.getElementById('NTPC_Profit').innerText;
+                    var NTPC_TEXT = document.getElementById('NTPC_TEXT').value;
+
+                    var NTPC_TEXT_BUY = document.getElementById('NTPC_TEXT_SELL').value;
+                    var NTPC_Margin = document.getElementById('NTPC_Margin').innerText;
+                    var NTPC_QTY = document.getElementById('NTPC_QTY').innerText;
+                    NTPC_Margin = Number(NTPC_Margin);
+                    NTPC_QTY = Number(NTPC_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < NTPC_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * NTPC_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(NTPC_TEXT)) + 0.05;
+                    var breakEven = Number(NTPC_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('NTPC_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(NTPC_Profit);
+                    document.getElementById('NTPC_SL').innerHTML = slText;
+                    break;
+                case "HINDALCO":
+                    var buyVal = document.getElementById('HINDALCO_TEXT_SELL').value;
+                    var HINDALCO_Profit = document.getElementById('HINDALCO_Profit').innerText;
+                    var HINDALCO_TEXT = document.getElementById('HINDALCO_TEXT').value;
+
+                    var HINDALCO_TEXT_BUY = document.getElementById('HINDALCO_TEXT_SELL').value;
+                    var HINDALCO_Margin = document.getElementById('HINDALCO_Margin').innerText;
+                    var HINDALCO_QTY = document.getElementById('HINDALCO_QTY').innerText;
+                    HINDALCO_Margin = Number(HINDALCO_Margin);
+                    HINDALCO_QTY = Number(HINDALCO_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < HINDALCO_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * HINDALCO_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(HINDALCO_TEXT)) + 0.05;
+                    var breakEven = Number(HINDALCO_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('HINDALCO_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(HINDALCO_Profit);
+                    document.getElementById('HINDALCO_SL').innerHTML = slText;
+                    break;
+                case "HCLTECH":
+                    var buyVal = document.getElementById('HCLTECH_TEXT_SELL').value;
+                    var HCLTECH_Profit = document.getElementById('HCLTECH_Profit').innerText;
+                    var HCLTECH_TEXT = document.getElementById('HCLTECH_TEXT').value;
+
+                    var HCLTECH_TEXT_BUY = document.getElementById('HCLTECH_TEXT_SELL').value;
+                    var HCLTECH_Margin = document.getElementById('HCLTECH_Margin').innerText;
+                    var HCLTECH_QTY = document.getElementById('HCLTECH_QTY').innerText;
+                    HCLTECH_Margin = Number(HCLTECH_Margin);
+                    HCLTECH_QTY = Number(HCLTECH_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < HCLTECH_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * HCLTECH_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(HCLTECH_TEXT)) + 0.05;
+                    var breakEven = Number(HCLTECH_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('HCLTECH_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(HCLTECH_Profit);
+                    document.getElementById('HCLTECH_SL').innerHTML = slText;
+                    break;
+                case "MARICO":
+                    var buyVal = document.getElementById('MARICO_TEXT_SELL').value;
+                    var MARICO_Profit = document.getElementById('MARICO_Profit').innerText;
+                    var MARICO_TEXT = document.getElementById('MARICO_TEXT').value;
+
+                    var MARICO_TEXT_BUY = document.getElementById('MARICO_TEXT_SELL').value;
+                    var MARICO_Margin = document.getElementById('MARICO_Margin').innerText;
+                    var MARICO_QTY = document.getElementById('MARICO_QTY').innerText;
+                    MARICO_Margin = Number(MARICO_Margin);
+                    MARICO_QTY = Number(MARICO_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < MARICO_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * MARICO_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(MARICO_TEXT)) + 0.05;
+                    var breakEven = Number(MARICO_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('MARICO_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(MARICO_Profit);
+                    document.getElementById('MARICO_SL').innerHTML = slText;
+                    break;
+                case "LUPIN":
+                    var buyVal = document.getElementById('LUPIN_TEXT_SELL').value;
+                    var LUPIN_Profit = document.getElementById('LUPIN_Profit').innerText;
+                    var LUPIN_TEXT = document.getElementById('LUPIN_TEXT').value;
+
+                    var LUPIN_TEXT_BUY = document.getElementById('LUPIN_TEXT_SELL').value;
+                    var LUPIN_Margin = document.getElementById('LUPIN_Margin').innerText;
+                    var LUPIN_QTY = document.getElementById('LUPIN_QTY').innerText;
+                    LUPIN_Margin = Number(LUPIN_Margin);
+                    LUPIN_QTY = Number(LUPIN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < LUPIN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * LUPIN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(LUPIN_TEXT)) + 0.05;
+                    var breakEven = Number(LUPIN_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('LUPIN_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(LUPIN_Profit);
+                    document.getElementById('LUPIN_SL').innerHTML = slText;
+                    break;
+                case "CHOLAFIN":
+                    var buyVal = document.getElementById('CHOLAFIN_TEXT_SELL').value;
+                    var CHOLAFIN_Profit = document.getElementById('CHOLAFIN_Profit').innerText;
+                    var CHOLAFIN_TEXT = document.getElementById('CHOLAFIN_TEXT').value;
+
+                    var CHOLAFIN_TEXT_BUY = document.getElementById('CHOLAFIN_TEXT_SELL').value;
+                    var CHOLAFIN_Margin = document.getElementById('CHOLAFIN_Margin').innerText;
+                    var CHOLAFIN_QTY = document.getElementById('CHOLAFIN_QTY').innerText;
+                    CHOLAFIN_Margin = Number(CHOLAFIN_Margin);
+                    CHOLAFIN_QTY = Number(CHOLAFIN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < CHOLAFIN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * CHOLAFIN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(CHOLAFIN_TEXT)) + 0.05;
+                    var breakEven = Number(CHOLAFIN_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('CHOLAFIN_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(CHOLAFIN_Profit);
+                    document.getElementById('CHOLAFIN_SL').innerHTML = slText;
+                    break;
+                case "TATAMOTORS":
+                    var buyVal = document.getElementById('TATAMOTORS_TEXT_SELL').value;
+                    var TATAMOTORS_Profit = document.getElementById('TATAMOTORS_Profit').innerText;
+                    var TATAMOTORS_TEXT = document.getElementById('TATAMOTORS_TEXT').value;
+
+                    var TATAMOTORS_TEXT_BUY = document.getElementById('TATAMOTORS_TEXT_SELL').value;
+                    var TATAMOTORS_Margin = document.getElementById('TATAMOTORS_Margin').innerText;
+                    var TATAMOTORS_QTY = document.getElementById('TATAMOTORS_QTY').innerText;
+                    TATAMOTORS_Margin = Number(TATAMOTORS_Margin);
+                    TATAMOTORS_QTY = Number(TATAMOTORS_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < TATAMOTORS_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * TATAMOTORS_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(TATAMOTORS_TEXT)) + 0.05;
+                    var breakEven = Number(TATAMOTORS_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('TATAMOTORS_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(TATAMOTORS_Profit);
+                    document.getElementById('TATAMOTORS_SL').innerHTML = slText;
+                    break;
+                case "SBIN":
+                    var buyVal = document.getElementById('SBIN_TEXT_SELL').value;
+                    var SBIN_Profit = document.getElementById('SBIN_Profit').innerText;
+                    var SBIN_TEXT = document.getElementById('SBIN_TEXT').value;
+
+                    var SBIN_TEXT_BUY = document.getElementById('SBIN_TEXT_SELL').value;
+                    var SBIN_Margin = document.getElementById('SBIN_Margin').innerText;
+                    var SBIN_QTY = document.getElementById('SBIN_QTY').innerText;
+                    SBIN_Margin = Number(SBIN_Margin);
+                    SBIN_QTY = Number(SBIN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < SBIN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * SBIN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(SBIN_TEXT)) + 0.05;
+                    var breakEven = Number(SBIN_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('SBIN_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(SBIN_Profit);
+                    document.getElementById('SBIN_SL').innerHTML = slText;
+                    break;
+                case "ADANIPORTS":
+                    var buyVal = document.getElementById('ADANIPORTS_TEXT_SELL').value;
+                    var ADANIPORTS_Profit = document.getElementById('ADANIPORTS_Profit').innerText;
+                    var ADANIPORTS_TEXT = document.getElementById('ADANIPORTS_TEXT').value;
+
+                    var ADANIPORTS_TEXT_BUY = document.getElementById('ADANIPORTS_TEXT_SELL').value;
+                    var ADANIPORTS_Margin = document.getElementById('ADANIPORTS_Margin').innerText;
+                    var ADANIPORTS_QTY = document.getElementById('ADANIPORTS_QTY').innerText;
+                    ADANIPORTS_Margin = Number(ADANIPORTS_Margin);
+                    ADANIPORTS_QTY = Number(ADANIPORTS_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < ADANIPORTS_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * ADANIPORTS_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(ADANIPORTS_TEXT)) + 0.05;
+                    var breakEven = Number(ADANIPORTS_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('ADANIPORTS_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(ADANIPORTS_Profit);
+                    document.getElementById('ADANIPORTS_SL').innerHTML = slText;
+                    break;
+                case "TITAN":
+                    var buyVal = document.getElementById('TITAN_TEXT_SELL').value;
+                    var TITAN_Profit = document.getElementById('TITAN_Profit').innerText;
+                    var TITAN_TEXT = document.getElementById('TITAN_TEXT').value;
+
+                    var TITAN_TEXT_BUY = document.getElementById('TITAN_TEXT_SELL').value;
+                    var TITAN_Margin = document.getElementById('TITAN_Margin').innerText;
+                    var TITAN_QTY = document.getElementById('TITAN_QTY').innerText;
+                    TITAN_Margin = Number(TITAN_Margin);
+                    TITAN_QTY = Number(TITAN_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < TITAN_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * TITAN_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(TITAN_TEXT)) + 0.05;
+                    var breakEven = Number(TITAN_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('TITAN_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(TITAN_Profit);
+                    document.getElementById('TITAN_SL').innerHTML = slText;
+                    break;
+                case "RELIANCE":
+                    var buyVal = document.getElementById('RELIANCE_TEXT_SELL').value;
+                    var RELIANCE_Profit = document.getElementById('RELIANCE_Profit').innerText;
+                    var RELIANCE_TEXT = document.getElementById('RELIANCE_TEXT').value;
+
+                    var RELIANCE_TEXT_BUY = document.getElementById('RELIANCE_TEXT_SELL').value;
+                    var RELIANCE_Margin = document.getElementById('RELIANCE_Margin').innerText;
+                    var RELIANCE_QTY = document.getElementById('RELIANCE_QTY').innerText;
+                    RELIANCE_Margin = Number(RELIANCE_Margin);
+                    RELIANCE_QTY = Number(RELIANCE_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < RELIANCE_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * RELIANCE_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(RELIANCE_TEXT)) + 0.05;
+                    var breakEven = Number(RELIANCE_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('RELIANCE_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(RELIANCE_Profit);
+                    document.getElementById('RELIANCE_SL').innerHTML = slText;
+                    break;
+                case "ZEEL":
+                    var buyVal = document.getElementById('ZEEL_TEXT_SELL').value;
+                    var ZEEL_Profit = document.getElementById('ZEEL_Profit').innerText;
+                    var ZEEL_TEXT = document.getElementById('ZEEL_TEXT').value;
+
+                    var ZEEL_TEXT_BUY = document.getElementById('ZEEL_TEXT_SELL').value;
+                    var ZEEL_Margin = document.getElementById('ZEEL_Margin').innerText;
+                    var ZEEL_QTY = document.getElementById('ZEEL_QTY').innerText;
+                    ZEEL_Margin = Number(ZEEL_Margin);
+                    ZEEL_QTY = Number(ZEEL_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < ZEEL_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * ZEEL_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(ZEEL_TEXT)) + 0.05;
+                    var breakEven = Number(ZEEL_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('ZEEL_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(ZEEL_Profit);
+                    document.getElementById('ZEEL_SL').innerHTML = slText;
+                    break;
+                case "BPCL":
+                    var buyVal = document.getElementById('BPCL_TEXT_SELL').value;
+                    var BPCL_Profit = document.getElementById('BPCL_Profit').innerText;
+                    var BPCL_TEXT = document.getElementById('BPCL_TEXT').value;
+
+                    var BPCL_TEXT_BUY = document.getElementById('BPCL_TEXT_SELL').value;
+                    var BPCL_Margin = document.getElementById('BPCL_Margin').innerText;
+                    var BPCL_QTY = document.getElementById('BPCL_QTY').innerText;
+                    BPCL_Margin = Number(BPCL_Margin);
+                    BPCL_QTY = Number(BPCL_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < BPCL_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * BPCL_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(BPCL_TEXT)) + 0.05;
+                    var breakEven = Number(BPCL_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('BPCL_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(BPCL_Profit);
+                    document.getElementById('BPCL_SL').innerHTML = slText;
+                    break;
+                case "COALINDIA":
+                    var buyVal = document.getElementById('COALINDIA_TEXT_SELL').value;
+                    var COALINDIA_Profit = document.getElementById('COALINDIA_Profit').innerText;
+                    var COALINDIA_TEXT = document.getElementById('COALINDIA_TEXT').value;
+
+                    var COALINDIA_TEXT_BUY = document.getElementById('COALINDIA_TEXT_SELL').value;
+                    var COALINDIA_Margin = document.getElementById('COALINDIA_Margin').innerText;
+                    var COALINDIA_QTY = document.getElementById('COALINDIA_QTY').innerText;
+                    COALINDIA_Margin = Number(COALINDIA_Margin);
+                    COALINDIA_QTY = Number(COALINDIA_QTY);
+                    var i = 0.05;
+                    var flag = true;
+                    var noProfit = 0;
+                    while (flag) {
+                        if (noProfit < COALINDIA_Margin) {
+                            i = i + 0.05;
+                            noProfit = i * COALINDIA_QTY;
+                        } else {
+                            flag = false;
+                        }
+                    }
+                    var slText = (Number(buyVal) + Number(COALINDIA_TEXT)) + 0.05;
+                    var breakEven = Number(COALINDIA_TEXT_BUY) - Number(i);
+                    slText = slText + "<br>";
+                    slText = slText + "Break Even - " + breakEven;
+
+                    document.getElementById('COALINDIA_TEXT_SELL_T').innerHTML = Number(buyVal) - Number(COALINDIA_Profit);
+                    document.getElementById('COALINDIA_SL').innerHTML = slText;
+                    break;
+            }
+        }
+
+
+        function myFunction(symbol, flag) {
+            //console.log("in myFunction");
+            var Qty = 1;
+            var temp = true;
+            profit = document.getElementById('profit').value;
+            switch (symbol) {
+                case "AXISBANK":
+                    //console.log("in AXISBANK");
+                    maxLoss = document.getElementById('maxloss').value;
+                    var size;
+                    if (flag == 1) {
+                        size = document.getElementById('AXISBANK_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('AXISBANK_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    //console.log(size);
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * axis_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * axis_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('AXISBANK_QTY').innerHTML = Qty - 1;
+                            document.getElementById('AXISBANK_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('AXISBANK_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('AXISBANK_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "NTPC":
+                    maxLoss = document.getElementById('maxloss').value;
+                    var size;
+                    if (flag == 1) {
+                        size = document.getElementById('NTPC_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('NTPC_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * ntpc_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * ntpc_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('NTPC_QTY').innerHTML = Qty - 1;
+                            document.getElementById('NTPC_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('NTPC_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('NTPC_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "HINDALCO":
+                    maxLoss = document.getElementById('maxloss').value;
+                    var size;
+                    if (flag == 1) {
+                        size = document.getElementById('HINDALCO_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('HINDALCO_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * HINDALCO_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * HINDALCO_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('HINDALCO_QTY').innerHTML = Qty - 1;
+                            document.getElementById('HINDALCO_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('HINDALCO_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('HINDALCO_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "HCLTECH":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('HCLTECH_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('HCLTECH_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * HCLTECH_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * HCLTECH_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+
+                        if (flag == 1) {
+                            document.getElementById('HCLTECH_QTY').innerHTML = Qty - 1;
+                            document.getElementById('HCLTECH_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('HCLTECH_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('HCLTECH_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "MARICO":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('MARICO_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('MARICO_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * MARICO_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * MARICO_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+
+                        if (flag == 1) {
+                            document.getElementById('MARICO_QTY').innerHTML = Qty - 1;
+                            document.getElementById('MARICO_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('MARICO_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('MARICO_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "LUPIN":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('LUPIN_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('LUPIN_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * LUPIN_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * LUPIN_factor;
+                            totalLoss = loss + margin;
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+
+                        if (flag == 1) {
+                            document.getElementById('LUPIN_QTY').innerHTML = Qty - 1;
+                            document.getElementById('LUPIN_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('LUPIN_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('LUPIN_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "CHOLAFIN":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('CHOLAFIN_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('CHOLAFIN_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * CHOLAFIN_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * CHOLAFIN_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('CHOLAFIN_QTY').innerHTML = Qty - 1;
+                            document.getElementById('CHOLAFIN_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('CHOLAFIN_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('CHOLAFIN_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "TATAMOTORS":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('TATAMOTORS_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('TATAMOTORS_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * TATAMOTORS_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * TATAMOTORS_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('TATAMOTORS_QTY').innerHTML = Qty - 1;
+                            document.getElementById('TATAMOTORS_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('TATAMOTORS_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('TATAMOTORS_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "SBIN":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('SBIN_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('SBIN_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * SBIN_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * SBIN_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('SBIN_QTY').innerHTML = Qty - 1;
+                            document.getElementById('SBIN_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('SBIN_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('SBIN_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "ADANIPORTS":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('ADANIPORTS_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('ADANIPORTS_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * ADANIPORTS_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * ADANIPORTS_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('ADANIPORTS_QTY').innerHTML = Qty - 1;
+                            document.getElementById('ADANIPORTS_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('ADANIPORTS_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('ADANIPORTS_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "TITAN":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('TITAN_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('TITAN_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * TITAN_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * TITAN_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('TITAN_QTY').innerHTML = Qty - 1;
+                            document.getElementById('TITAN_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('TITAN_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('TITAN_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "RELIANCE":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('RELIANCE_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('RELIANCE_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * RELIANCE_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * RELIANCE_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('RELIANCE_QTY').innerHTML = Qty - 1;
+                            document.getElementById('RELIANCE_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('RELIANCE_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('RELIANCE_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "ZEEL":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('ZEEL_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('ZEEL_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * ZEEL_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * ZEEL_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('ZEEL_QTY').innerHTML = Qty - 1;
+                            document.getElementById('ZEEL_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('ZEEL_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('ZEEL_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "BPCL":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('BPCL_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('BPCL_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * BPCL_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * BPCL_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('BPCL_QTY').innerHTML = Qty - 1;
+                            document.getElementById('BPCL_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('BPCL_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('BPCL_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+                case "COALINDIA":
+                    maxLoss = document.getElementById('maxloss').value;
+                    if (flag == 1) {
+                        size = document.getElementById('COALINDIA_TEXT').value;
+                        size = Number(size) + 0.10;
+                    } else {
+                        size = document.getElementById('COALINDIA_APROX_SIZE').innerHTML;
+                        size = Number(size) + 0.10;
+                    }
+                    var tradeValue = 0, loss = 0, margin = 0, totalLoss = 0;
+
+                    if (!isNaN(size)) {
+                        while (temp) {
+                            tradeValue = Qty * COALINDIA_liveValue;
+                            loss = Qty * size;
+                            margin = tradeValue * COALINDIA_factor;
+                            totalLoss = loss + margin;
+
+                            if (parseInt(totalLoss) > maxLoss) {
+                                temp = false;
+                            } else {
+                                Qty = Qty + 1;
+                            }
+                        }
+                        //console.log("margin " + margin);
+                        //console.log("profit " + profit);
+                        var totalProfitPoints = Number(profit) + Number(margin);
+                        totalProfitPoints = totalProfitPoints / (Qty - 1);
+                        //console.log("totalProfitPoints " + totalProfitPoints);
+                        if (flag == 1) {
+                            document.getElementById('COALINDIA_QTY').innerHTML = Qty - 1;
+                            document.getElementById('COALINDIA_Margin').innerHTML = Math.round(margin * 100) / 100;
+                            document.getElementById('COALINDIA_Profit').innerHTML = Math.round(totalProfitPoints * 100) / 100;
+                        } else {
+                            document.getElementById('COALINDIA_APROX_QTY').innerHTML = Qty - 1;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        $(document).ready(function () {
+
+            function populateData(jsonData) {
+                var data = JSON.parse(jsonData);
+                console.log(data);
+                let axis = data.find(o => o.symbol === 'AXISBANK');
+                document.getElementById('AXISBANK').innerHTML = axis.ltP;
+                axis_liveValue = Number(axis.ltP);
+
+                let ntpc = data.find(o => o.symbol === 'NTPC');
+                document.getElementById('NTPC').innerHTML = ntpc.ltP;
+                ntpc_liveValue = Number(ntpc.ltP);
+
+                let HINDALCO = data.find(o => o.symbol === 'HINDALCO');
+                document.getElementById('HINDALCO').innerHTML = HINDALCO.ltP;
+                HINDALCO_liveValue = Number(HINDALCO.ltP);
+
+                let HCLTECH = data.find(o => o.symbol === 'HCLTECH');
+                document.getElementById('HCLTECH').innerHTML = HCLTECH.ltP;
+                HCLTECH_liveValue = Number(HCLTECH.ltP);
+
+                let MARICO = data.find(o => o.symbol === 'MARICO');
+                document.getElementById('MARICO').innerHTML = MARICO.ltP;
+                MARICO_liveValue = Number(MARICO.ltP);
+
+
+
+                let CHOLAFIN = data.find(o => o.symbol === 'CHOLAFIN');
+                document.getElementById('CHOLAFIN').innerHTML = CHOLAFIN.ltP;
+                CHOLAFIN_liveValue = Number(CHOLAFIN.ltP);
+
+                let TATAMOTORS = data.find(o => o.symbol === 'TATAMOTORS');
+                document.getElementById('TATAMOTORS').innerHTML = TATAMOTORS.ltP;
+                TATAMOTORS_liveValue = Number(TATAMOTORS.ltP);
+
+                let SBIN = data.find(o => o.symbol === 'SBIN');
+                document.getElementById('SBIN').innerHTML = SBIN.ltP;
+                SBIN_liveValue = Number(SBIN.ltP);
+
+                let ADANIPORTS = data.find(o => o.symbol === 'ADANIPORTS');
+                document.getElementById('ADANIPORTS').innerHTML = ADANIPORTS.ltP;
+                ADANIPORTS_liveValue = Number(ADANIPORTS.ltP);
+
+                let ZEEL = data.find(o => o.symbol === 'ZEEL');
+                document.getElementById('ZEEL').innerHTML = ZEEL.ltP;
+                ZEEL_liveValue = Number(ZEEL.ltP);
+
+                let BPCL = data.find(o => o.symbol === 'BPCL');
+                document.getElementById('BPCL').innerHTML = BPCL.ltP;
+                BPCL_liveValue = Number(BPCL.ltP);
+
+                let COALINDIA = data.find(o => o.symbol === 'COALINDIA');
+                document.getElementById('COALINDIA').innerHTML = COALINDIA.ltP;
+                COALINDIA_liveValue = Number(COALINDIA.ltP);
+
+                let TITAN = data.find(o => o.symbol === 'TITAN');
+                document.getElementById('TITAN').innerHTML = TITAN.ltP;
+
+                var a = TITAN.ltP;
+                a = a.replace(/\,/g, ''); // 1125, but a string, so convert it to number
+                a = parseInt(a, 10);
+                TITAN_liveValue = Number(a);
+
+                let RELIANCE = data.find(o => o.symbol === 'RELIANCE');
+                document.getElementById('RELIANCE').innerHTML = RELIANCE.ltP;
+
+                var b = RELIANCE.ltP;
+                b = b.replace(/\,/g, ''); // 1125, but a string, so convert it to number
+                b = parseInt(b, 10);
+                RELIANCE_liveValue = Number(b);
+
+                let LUPIN = data.find(o => o.symbol === 'LUPIN');
+                document.getElementById('LUPIN').innerHTML = LUPIN.ltP;
+
+                var c = RELIANCE.ltP;
+                c = c.replace(/\,/g, ''); // 1125, but a string, so convert it to number
+                c = parseInt(c, 10);
+                LUPIN_liveValue = Number(c);
+
+                let TIMEDATA = data.find(o => o.symbol === 'TIMEDATA');
+                document.getElementById('AXISBANK_APROX_SIZE').innerHTML = Number(TIMEDATA.AXISBANK.high) - Number(TIMEDATA.AXISBANK.low);
+                myFunction("AXISBANK", 2);
+                document.getElementById('NTPC_APROX_SIZE').innerHTML = Number(TIMEDATA.NTPC.high) - Number(TIMEDATA.NTPC.low);
+                myFunction("NTPC", 2);
+                document.getElementById('HINDALCO_APROX_SIZE').innerHTML = Number(TIMEDATA.HINDALCO.high) - Number(TIMEDATA.HINDALCO.low);
+                myFunction("HINDALCO", 2);
+                document.getElementById('HCLTECH_APROX_SIZE').innerHTML = Number(TIMEDATA.HCLTECH.high) - Number(TIMEDATA.HCLTECH.low);
+                myFunction("HCLTECH", 2);
+                document.getElementById('MARICO_APROX_SIZE').innerHTML = Number(TIMEDATA.MARICO.high) - Number(TIMEDATA.MARICO.low);
+                myFunction("MARICO", 2);
+                document.getElementById('LUPIN_APROX_SIZE').innerHTML = Number(TIMEDATA.LUPIN.high) - Number(TIMEDATA.LUPIN.low);
+                myFunction("LUPIN", 2);
+                document.getElementById('CHOLAFIN_APROX_SIZE').innerHTML = Number(TIMEDATA.CHOLAFIN.high) - Number(TIMEDATA.CHOLAFIN.low);
+                myFunction("CHOLAFIN", 2);
+                document.getElementById('TATAMOTORS_APROX_SIZE').innerHTML = Number(TIMEDATA.TATAMOTORS.high) - Number(TIMEDATA.TATAMOTORS.low);
+                myFunction("TATAMOTORS", 2);
+                document.getElementById('SBIN_APROX_SIZE').innerHTML = Number(TIMEDATA.SBIN.high) - Number(TIMEDATA.SBIN.low);
+                myFunction("SBIN", 2);
+                document.getElementById('ADANIPORTS_APROX_SIZE').innerHTML = Number(TIMEDATA.ADANIPORTS.high) - Number(TIMEDATA.ADANIPORTS.low);
+                myFunction("ADANIPORTS", 2);
+                document.getElementById('TITAN_APROX_SIZE').innerHTML = Number(TIMEDATA.TITAN.high) - Number(TIMEDATA.TITAN.low);
+                myFunction("TITAN", 2);
+                document.getElementById('RELIANCE_APROX_SIZE').innerHTML = Number(TIMEDATA.RELIANCE.high) - Number(TIMEDATA.RELIANCE.low);
+                myFunction("RELIANCE", 2);
+                document.getElementById('ZEEL_APROX_SIZE').innerHTML = Number(TIMEDATA.ZEEL.high) - Number(TIMEDATA.ZEEL.low);
+                myFunction("ZEEL", 2);
+                document.getElementById('BPCL_APROX_SIZE').innerHTML = Number(TIMEDATA.BPCL.high) - Number(TIMEDATA.BPCL.low);
+                myFunction("BPCL", 2);
+                document.getElementById('COALINDIA_APROX_SIZE').innerHTML = Number(TIMEDATA.COALINDIA.high) - Number(TIMEDATA.COALINDIA.low);
+                myFunction("COALINDIA", 2);
+            }
+
+            function getLatestDataFromServer() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        populateData(this.responseText);
+                    }
+                };
+                xmlhttp.open("GET", "https://morning-cove-84300.herokuapp.com/nifty", true);
+                xmlhttp.send();
+            }
+
+
+            setInterval(() => {
+                getLatestDataFromServer();
+            }, 5000);
+
+
+        });
+    </script>
+
+</body>
+
+</html>
